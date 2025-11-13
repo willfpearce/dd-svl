@@ -55,21 +55,14 @@ localparam int PROG_LEN =100;
 
     // Constraint: operand constraints based on operation type
     constraint operand_constraints {
-      if (opcode == 4'b0001) begin  // ADD
-        a inside {[0:50]};
-        b inside {[0:50]};
-      end
-      else if (opcode == 4'b0010) begin  // SUB
+      if (opcode == 4'b0001)  // ADD
+        a inside {[0:50]} && b inside {[0:50]};
+      else if (opcode == 4'b0010)  // SUB
         a > b;
-      end
-      else if (opcode == 4'b0011) begin  // MUL
-        (a % 2) == 0;  // a is even
-        (b % 2) == 1;  // b is odd
-      end
-      else if (opcode == 4'b1011) begin  // GCD
-        a != 0;
-        b != 0;
-      end
+      else if (opcode == 4'b0011)  // MUL
+        (a % 2) == 0 && (b % 2) == 1;  // a is even, b is odd
+      else if (opcode == 4'b1011)  // GCD
+        a != 0 && b != 0;
     }
 
     // Weighted constraint: distribution of operations
