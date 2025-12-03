@@ -53,6 +53,7 @@ localparam int PROG_LEN =100;
  constraint c_opcode_range { opcode inside {[4'b0001:4'b0011], 4'b1011, 4'b1111 }; }
   
 // Comment (2b) Add Contraint 1 here: Define a constraint named unique_operands to generate different a and b values at each iteration. 
+    constraint unique_operands { a != b; }
 
 
 
