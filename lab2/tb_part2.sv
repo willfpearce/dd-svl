@@ -100,10 +100,6 @@ localparam int PROG_LEN =100;
       bins b [] = {[0:255]};
       
     }
-    
-    // (2a) Cross coverage for operands a and b
-    cross a_sig, b_sig;
-    
     coverpoint opcode_sig {
       bins opcode []= {[0:15]};
       

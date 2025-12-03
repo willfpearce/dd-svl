@@ -163,7 +163,7 @@ localparam int PROG_LEN =100;
     }
 	
 // Comment (2a) Define a cross coverage for opreand a and b here. (Hint: use a_sig,b_sig)
-
+    cross a_sig, b_sig;
 
   endgroup
 
