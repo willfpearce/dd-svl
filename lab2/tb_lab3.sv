@@ -70,6 +70,9 @@ localparam int PROG_LEN =100;
 
 // Comment (2d) Write a soft constraint that b should be greater than a and can be overridden 
 // using inline constraint to make it a > b (See randomize() function in (2e)
+    constraint soft_b_greater_a {
+      soft b > a;
+    }
 
 
 
@@ -195,7 +198,7 @@ localparam int PROG_LEN =100;
 
         // Normal randomization for first (PROG_LEN - 5) iterations
         if (i < PROG_LEN - 5) begin
-            assert(instr_obj.randomize()) // Comment (2e) Modify this statement to override 
+            assert(instr_obj.randomize() with { a > b; }) // Comment (2e) Modify this statement to override 
                                           //  soft constraint (2d) and make a > b
               else $fatal("Randomization failed!");
 
