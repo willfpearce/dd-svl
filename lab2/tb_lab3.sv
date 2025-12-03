@@ -102,6 +102,8 @@ localparam int PROG_LEN =100;
           
             // Comment(2f) Insert code here to override the values of 'a' and 'b'
             //     by adding 1 to each (a = a+1; b = b+1); 
+            a = a + 1;
+            b = b + 1;
 		
             $display("[post_randomize] WARNING: same result repeated!");
 					// changing the values of a and b, becuase it is repeated concecutively.
